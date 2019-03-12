@@ -1,0 +1,18 @@
+{
+  "firstName": "Anna",
+  "lastName": "Popova",
+  "email": "",
+  "password": "dfgdfg",
+  "dateOfBirth": "1989-02-27T18:35:48.095Z",
+  "address": "dfgdgdfgdggdfg",
+  "firstNameA": "Anna",
+  "lastNameA": "Popova",
+  "Company": "MyCompany",
+  "City": "Atlanta",
+  "ZipCode": "50006",
+  "Info": "No info",
+  "HomePhone": "35-48-564",
+  "MobilePhone": "258-456-888",
+  "AddressAlias": "MyHomeAddress"
+}
+
