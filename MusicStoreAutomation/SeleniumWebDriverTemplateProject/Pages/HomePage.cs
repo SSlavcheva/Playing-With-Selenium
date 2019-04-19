@@ -13,11 +13,11 @@ namespace SeleniumWebDriverTemplateProject.Pages
     public class HomePage : Page
     {
 
-        [FindsBy(How = How.LinkText, Using = "Music Store")]
-        public IWebElement MusicStoreButton { get; set; }
+        [FindsBy(How = How.XPath, Using = "/html/body/div[4]/div/div[4]/a")]
+        public IWebElement SignInButton { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "Home")]
-        public IWebElement HomeButton { get; set; }
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"first_name\"]")]
+        public IWebElement NameTextBox { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#logoutForm ul > li")]
         public IWebElement UserGreetingTextBox { get; set; }
@@ -55,14 +55,34 @@ namespace SeleniumWebDriverTemplateProject.Pages
             return list;
         }
 
+        //public static HomePage NavigateTo(IWebDriver driver)
+        //{
+        //    var page = LoginPage.NavigateTo(driver);
+        //    System.Threading.Thread.Sleep(3000);
+
+        //    page.LogIn();
+
+        //    var homePageInstance = PageFactoryExtensions.InitPage<HomePage>(driver);
+
+        //    return homePageInstance;
+        //}
+
         public static HomePage NavigateTo(IWebDriver driver)
         {
-            var page = LoginPage.NavigateTo(driver);
-            System.Threading.Thread.Sleep(3000);
+            string baseURL = GeneralSettings.Default.BaseURL;
+            driver.Navigate().GoToUrl(baseURL);
 
-            page.LogIn();
+            if (driver.Manage().Cookies.AllCookies.Any())
+            {
+                driver.Manage().Cookies.DeleteAllCookies();
+                driver.Navigate().GoToUrl(baseURL);
+            }
+
+           // driver.Navigate().GoToUrl(baseURL);
 
             var homePageInstance = PageFactoryExtensions.InitPage<HomePage>(driver);
+
+            //Page.GlobalWait(driver).Until(d => driver.FindElements(By.Id("lfootercc")).Any());
 
             return homePageInstance;
         }

@@ -1,16 +1,10 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
 using SeleniumWebDriverTemplateProject.Helpers;
 using SeleniumWebDriverTemplateProject.Pages;
 using SeleniumWebDriverTemplateProject.Tests.Abstract;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-
 namespace SeleniumWebDriverTemplateProject.Tests
 {
     class HomePageTests : DesktopSeleniumTestFixturePrototype
@@ -25,8 +19,13 @@ namespace SeleniumWebDriverTemplateProject.Tests
 
             Thread.Sleep(4000);
 
-            int albumCount = homePageInstance.GetAlbums().Count;
-            Assert.Greater(albumCount, 0);
+            homePageInstance.SignInButton.Click();
+
+            Thread.Sleep(4000);
+
+            Driver.SwitchTo().ActiveElement();
+            homePageInstance.NameTextBox.SendKeys("hudhcjd");
+
         }
     }
 }

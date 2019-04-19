@@ -12,6 +12,6 @@ namespace SeleniumWebDriverTemplateProject.Pages
     class AlbumPage : Page
     {
         [FindsBy(How = How.CssSelector, Using = ".button a")]
-        public IWebElement AddToCartButton { get; set; }
+        public IWebElement AddToCartButton => Driver.FindElement(By.Id(""));
     }
 }

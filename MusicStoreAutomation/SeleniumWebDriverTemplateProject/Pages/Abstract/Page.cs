@@ -16,5 +16,7 @@ namespace SeleniumWebDriverTemplateProject.Pages.Abstract
         {
             return new WebDriverWait(driver, TimeSpan.FromSeconds(GeneralSettings.Default.ForcedWait));
         }
+
+        
     }
 }

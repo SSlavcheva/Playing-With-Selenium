@@ -16,4 +16,8 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.46.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\RegistrationPage\NewFolder\" />
+  </ItemGroup>
+
 </Project>
